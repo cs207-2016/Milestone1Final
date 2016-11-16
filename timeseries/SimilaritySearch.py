@@ -15,8 +15,13 @@ def random_ts(a):
     return ts.TimeSeries(t, v)
 
 def stand(x, m, s):
-    "standardize timeseries x my mean m and std deviation s"
-    #your code here
+    "standardize timeseries x by mean m and std deviation s"
+    vals = np.array(list(iter(x)))
+    vals = (vals - m)/s
+    return ts.TimeSeries(list(x.itertimes()),vals)
+
+
+
 
 def ccor(ts1, ts2):
     "given two standardized time series, compute their cross-correlation using FFT"
