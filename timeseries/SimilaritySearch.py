@@ -20,7 +20,10 @@ def stand(x, m, s):
 
 def ccor(ts1, ts2):
     "given two standardized time series, compute their cross-correlation using FFT"
-    #your code here
+    f1 = fft(iter(ts1))
+    f2 = fft(np.flipud(iter(ts2)))
+    cc = np.real(ifft(f1 * f2))
+    return fftshift(cc)
 
 
 # this is just for checking the max correlation with the
