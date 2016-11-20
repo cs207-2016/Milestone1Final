@@ -1,7 +1,7 @@
 import numpy.fft as nfft
 import numpy as np
 #below is your module. Use your ListTimeSeries or ArrayTimeSeries..
-import timeseries as ts
+import timeseries.TimeSeries as ts
 from scipy.stats import norm
 
 def tsmaker(m, s, j):
@@ -19,7 +19,6 @@ def stand(x, m, s):
     vals = np.array(list(iter(x)))
     vals = (vals - m)/s
     return ts.TimeSeries(list(x.itertimes()),vals)
-
 
 
 
@@ -44,7 +43,7 @@ def kernel_corr(ts1, ts2, mult=1):
     "compute a kernelized correlation so that we can get a real distance"
     #your code here.
 
-
+'''
 #this is for a quick and dirty test of these functions
 if __name__ == "__main__":
     print("HI")
@@ -73,3 +72,5 @@ if __name__ == "__main__":
     print(idx, mcorr)
     sumcorr = kernel_corr(standts3, standts4, mult=10)
     print(sumcorr)
+
+    '''
