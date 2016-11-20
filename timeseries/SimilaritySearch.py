@@ -7,18 +7,21 @@ from scipy.stats import norm
 def tsmaker(m, s, j):
     t = np.arange(0.0, 1.0, 0.01)
     v = norm.pdf(t, m, s) + j*np.random.randn(100)
-    return ts.TimeSeries(t, v)
+    #return ts.TimeSeries(t, v)
+    return ts.TimeSeries(v, t)
 
 def random_ts(a):
     t = np.arange(0.0, 1.0, 0.01)
     v = a*np.random.random(100)
-    return ts.TimeSeries(t, v)
+    #return ts.TimeSeries(t, v)
+    return ts.TimeSeries(v, t)
 
 def stand(x, m, s):
     "standardize timeseries x by mean m and std deviation s"
     vals = np.array(list(iter(x)))
     vals = (vals - m)/s
-    return ts.TimeSeries(list(x.itertimes()),vals)
+    #return ts.TimeSeries(list(x.itertimes()),vals)
+    return ts.TimeSeries(vals, list(x.itertimes()))
 
 
 
